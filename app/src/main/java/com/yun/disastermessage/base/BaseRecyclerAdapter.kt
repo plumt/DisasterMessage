@@ -155,8 +155,8 @@ class BaseRecyclerAdapter {
 }
 
 abstract class Item : BaseObservable() {
-    abstract val id: Int
-    abstract val viewType: Int
+    abstract var id: Int
+    abstract var viewType: Int
 }
 
 @BindingAdapter("replaceAll")

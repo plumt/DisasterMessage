@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DisasterMessage</string>
 
-    <string name="OPEN_URL">http://apis.data.go.kr/1741000/DisasterMsg4/getDisasterMsg2List</string>
+    <string name="OPEN_URL">http://apis.data.go.kr</string>
     <string name="ServiceKey">nHxMfmtyTjtuCvjAcPez7bDwl%2BPwLECo%2FF2%2FLp92vVDqrtlW4KTvdmMMqZiXWu5zyrP6ehOEnYoeG6hpdbSA8w%3D%3D</string>
 
     <string name="exit">종료</string>
