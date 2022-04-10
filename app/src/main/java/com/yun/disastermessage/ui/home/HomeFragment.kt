@@ -40,19 +40,21 @@ class HomeFragment
                     }
                 }
             }
-
-            btn.setOnClickListener {
-                if(viewModel.screen.value == SELECT_SCREEN) viewModel.screen.value = LIST_SCREEN
-                else viewModel.screen.value = SELECT_SCREEN
-            }
-
-            btnCall.setOnClickListener {
-                viewModel.callMessageApi("중랑",true)
-            }
+//            btnCall.setOnClickListener {
+//                viewModel.pageNo = 0
+//                viewModel.callMessageApi(true)
+//            }
 
         }
 
         viewModel.apply {
+
+//            location.observe(viewLifecycleOwner){
+//                if(it != "") {
+//                    callMessageApi(true)
+//                }
+//            }
+
             screen.observe(viewLifecycleOwner) {
                 if (it == LIST_SCREEN || it == SELECT_SCREEN) {
                     binding.vpMessage.setCurrentItem(it, true)

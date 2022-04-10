@@ -11,12 +11,75 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="select"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_address"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="1dp"
+        app:cardBackgroundColor="#f3f3f3"
+        app:cardCornerRadius="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_center"
+        app:strokeColor="#cccccc"
+        app:strokeWidth="1dp">
+
+        <TextView
+            android:id="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:maxLength="30"
+            android:paddingStart="23dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="36dp"
+            android:singleLine="true"
+            android:text="@{select.locationNm}"
+            android:textColor="@color/color_979797"
+            android:textSize="18sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@{select.locationNm.equals(``) ? @color/color_979797 : @color/color_534713}"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetLeft="0dp"
+        android:insetBottom="0dp"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_btn_text"
+        app:layout_constraintStart_toStartOf="@id/gl_start"
+        app:layout_constraintEnd_toEndOf="@id/gl_end"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:cornerRadius="50dp"
+        app:iconSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/mcv_address"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

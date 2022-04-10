@@ -1,13 +1,15 @@
-package com.yun.disastermessage.data.repository
+package com.yun.disastermessage.data.repository.api
 
 import com.yun.disastermessage.data.Constant
+import com.yun.disastermessage.data.model.AddressModel
 import com.yun.disastermessage.data.model.MessageModel
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface OpenApi {
+interface Api {
+
     @GET("/1741000/DisasterMsg4/getDisasterMsg2List")
     suspend fun message(
         @Query("serviceKey") ServiceKey: String,
@@ -17,4 +19,9 @@ interface OpenApi {
         @Query("create_date") create_date: String = Constant.createDate,
         @Query("location_name") location_name: String
     ): Response<MessageModel.RS>
+
+    @GET("/v1/regcodes")
+    suspend fun allAddress(
+        @Query("regcode_pattern") regcode_pattern: String
+    ) : Response<AddressModel.RS>
 }

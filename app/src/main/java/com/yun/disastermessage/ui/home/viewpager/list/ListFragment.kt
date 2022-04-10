@@ -3,10 +3,12 @@ package com.yun.disastermessage.ui.home.viewpager.list
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.yun.disastermessage.R
 import com.yun.disastermessage.BR
 import com.yun.disastermessage.base.BaseBindingFragment
 import com.yun.disastermessage.base.BaseRecyclerAdapter
+import com.yun.disastermessage.data.Constant
 import com.yun.disastermessage.data.model.MessageModel
 import com.yun.disastermessage.databinding.FragmentListBinding
 import com.yun.disastermessage.databinding.ItemMessageBinding
@@ -35,6 +37,11 @@ class ListFragment
         }
 
         binding.apply {
+
+            btnRetry.setOnClickListener {
+                viewPagerFragment.screen.value = Constant.SELECT_SCREEN
+            }
+
             rvMessage.run {
                 adapter = object : BaseRecyclerAdapter.Create<MessageModel.RS.Row, ItemMessageBinding>(
                     R.layout.item_message,
@@ -45,6 +52,14 @@ class ListFragment
 
                     }
                 }
+                addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                        super.onScrollStateChanged(recyclerView, newState)
+                        if (!recyclerView.canScrollVertically(1) && !sharedViewModel.isLoading.value!!) {
+                            viewPagerFragment.callMessageApi()
+                        }
+                    }
+                })
             }
         }
 

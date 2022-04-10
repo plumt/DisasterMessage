@@ -8,6 +8,7 @@ import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -43,13 +44,13 @@ val networkModule = module {
     }
     single { provideHttpClient() }
 
-    single {
+    single(named("open")) {
         val baseUrl = androidContext().getString(R.string.OPEN_URL)
         provideRetrofit(get(), baseUrl)
     }
 
-//    single {
-//        val baseUrl = androidContext().getString(R.string.NAVER_URL)
-//        provideRetrofit(get(), baseUrl)
-//    }
+    single(named("address")) {
+        val baseUrl = androidContext().getString(R.string.ADDRESS_URL)
+        provideRetrofit(get(), baseUrl)
+    }
 }

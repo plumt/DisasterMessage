@@ -11,4 +11,7 @@ object Constant {
 
     val LIST_SCREEN = 0
     val SELECT_SCREEN = 1
+
+    val ALL_LOCATION = "*00000000"
+    val SELECT_LOCATION = "*000000"
 }

@@ -4,7 +4,6 @@ import android.app.Application
 import com.yun.disastermessage.base.BaseViewModel
 import com.yun.disastermessage.base.ListLiveData
 import com.yun.disastermessage.data.model.MessageModel
-import com.yun.disastermessage.data.repository.OpenApi
 
 class ListViewModel(
     application: Application

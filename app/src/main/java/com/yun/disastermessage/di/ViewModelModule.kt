@@ -6,6 +6,7 @@ import com.yun.disastermessage.ui.home.viewpager.list.ListViewModel
 import com.yun.disastermessage.ui.home.viewpager.select.SelectViewModel
 import com.yun.disastermessage.ui.main.MainViewModel
 import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val viewModelModule = module {
@@ -15,7 +16,7 @@ val viewModelModule = module {
     }
 
     viewModel {
-        HomeViewModel(get(), get(), get())
+        HomeViewModel(get(), get(named("open")), get(named("address")), get())
     }
 
     viewModel {
