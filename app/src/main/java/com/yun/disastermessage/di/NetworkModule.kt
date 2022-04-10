@@ -14,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-    val connectTimeout: Long = 40// 20s
-    val readTimeout: Long = 40 // 20s
+    val connectTimeout: Long = 60// 30s
+    val readTimeout: Long = 60 // 30s
 
     fun provideHttpClient(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
