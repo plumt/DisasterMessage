@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="messageItemListener"
+            type="com.yun.disastermessage.base.BaseRecyclerAdapter.OnItemClickListener" />
+
+        <variable
+            name="itemMessage"
+            type="com.yun.disastermessage.data.model.MessageModel.RS.Row" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@{itemMessage.mod() ? @color/color_f4f4f4 : @color/white}"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    >
+
+    <kr.co.prnd.readmore.ReadMoreTextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_title"
+        android:text="@{itemMessage.location_name}"
+        app:readMoreColor="@color/color_ffd100"
+        app:readMoreText="…더보기"
+        app:readMoreMaxLine="2"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <kr.co.prnd.readmore.ReadMoreTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_msg"
+        android:text="@{itemMessage.msg}"
+        app:readMoreColor="@color/color_ffd100"
+        app:readMoreText="…더보기"
+        app:readMoreMaxLine="2"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_date"
+        android:text="@{itemMessage.create_date}"
+        app:layout_constraintTop_toBottomOf="@id/tv_msg"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

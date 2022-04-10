@@ -8,4 +8,7 @@ object Constant {
     val numOfRows = "20"
     val type = "json"
     val createDate = URLDecoder.decode("2000%2F01%2F10 00:00:00","UTF-8")
+
+    val LIST_SCREEN = 0
+    val SELECT_SCREEN = 1
 }

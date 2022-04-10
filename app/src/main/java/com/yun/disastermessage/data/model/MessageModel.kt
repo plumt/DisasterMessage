@@ -8,7 +8,7 @@ class MessageModel {
     ) {
         data class DisasterMsg(
             val head: List<Head>? = null,
-            val row: List<Row>? = null
+            val row: ArrayList<Row>? = null
         )
 
         data class Head(
@@ -33,6 +33,8 @@ class MessageModel {
             val md101_sn: String?,
             val msg: String?,
             val send_platform: String?
-        ) : Item()
+        ) : Item(){
+            fun mod(): Boolean = id % 2 == 0
+        }
     }
 }
