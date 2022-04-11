@@ -47,11 +47,16 @@ class SelectFragment
                 }
             }
         }
+        viewPagerFragment.apply {
+            locationList.observe(viewLifecycleOwner){
+                if(it.size != 0 && viewModel.locationList.value != it){
+                    viewModel.locationList.value = it
+                    openDialog(viewModel.locationNm.value!! == "")
+                }
+            }
 
-        viewPagerFragment.locationList.observe(viewLifecycleOwner){
-            if(it.size != 0 && viewModel.locationList.value != it){
-                viewModel.locationList.value = it
-                openDialog(viewModel.locationNm.value!! == "")
+            screen.observe(viewLifecycleOwner){
+                viewModel.screen.value = it
             }
         }
 

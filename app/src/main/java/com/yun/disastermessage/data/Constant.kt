@@ -14,4 +14,6 @@ object Constant {
 
     val ALL_LOCATION = "*00000000"
     val SELECT_LOCATION = "*000000"
+
+    val SHARED_LOCATION_KEY = "location"
 }

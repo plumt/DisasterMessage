@@ -6,6 +6,8 @@
 
         <import type="android.view.View" />
 
+        <import type="com.yun.disastermessage.data.Constant" />
+
         <variable
             name="list"
             type="com.yun.disastermessage.ui.home.viewpager.list.ListViewModel" />
@@ -50,6 +52,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/color_ffd100"
+            android:visibility="@{list.screen == Constant.INSTANCE.LIST_SCREEN ? View.VISIBLE : View.INVISIBLE}"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:stateListAnimator="@null"

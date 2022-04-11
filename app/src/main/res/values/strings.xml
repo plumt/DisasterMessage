@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DisasterMessage</string>
+    <string name="app_name">재난 문자 확인</string>
 
     <string name="OPEN_URL">http://apis.data.go.kr</string>
     <string name="ADDRESS_URL">https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app</string>

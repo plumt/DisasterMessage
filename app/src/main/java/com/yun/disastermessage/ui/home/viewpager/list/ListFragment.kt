@@ -34,6 +34,9 @@ class ListFragment
             messageItems.observe(viewLifecycleOwner) {
                 viewModel.messageItems.value = it
             }
+            screen.observe(viewLifecycleOwner){
+                viewModel.screen.value = it
+            }
         }
 
         binding.apply {
@@ -52,16 +55,45 @@ class ListFragment
 
                     }
                 }
+
                 addOnScrollListener(object : RecyclerView.OnScrollListener() {
                     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                         super.onScrollStateChanged(recyclerView, newState)
                         if (!recyclerView.canScrollVertically(1) && !sharedViewModel.isLoading.value!!) {
                             viewPagerFragment.callMessageApi()
                         }
+
+                        when(newState){
+                            RecyclerView.SCROLL_STATE_DRAGGING ->binding.btnRetry.visibility = View.GONE
+                            RecyclerView.SCROLL_STATE_IDLE -> binding.btnRetry.visibility = View.VISIBLE
+                        }
                     }
                 })
             }
         }
-
     }
+
+
+    /*
+    val onScrollListener = object : RecyclerView.OnScrollListener(){
+                    var temp = 0
+                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                        super.onScrollStateChanged(recyclerView, newState)
+                        if (!recyclerView.canScrollVertically(1) && !sharedViewModel.isLoading.value!!) {
+                            viewPagerFragment.callMessageApi()
+                        }
+                        binding.btnRetry.visibility = View.VISIBLE
+                        binding.vLineBottom.visibility = View.VISIBLE
+                        temp = 1
+                    }
+
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        if(temp == 1){
+                            super.onScrolled(recyclerView, dx, dy)
+                            binding.btnRetry.visibility = View.GONE
+                            binding.vLineBottom.visibility = View.GONE
+                        }
+                    }
+                }
+     */
 }

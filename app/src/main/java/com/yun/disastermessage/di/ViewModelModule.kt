@@ -24,6 +24,6 @@ val viewModelModule = module {
     }
 
     viewModel {
-        SelectViewModel(get())
+        SelectViewModel(get(), get())
     }
 }

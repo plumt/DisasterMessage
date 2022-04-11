@@ -11,6 +11,7 @@ import com.yun.disastermessage.data.Constant
 import com.yun.disastermessage.data.Constant.ALL_LOCATION
 import com.yun.disastermessage.data.Constant.LIST_SCREEN
 import com.yun.disastermessage.data.Constant.SELECT_SCREEN
+import com.yun.disastermessage.data.Constant.SHARED_LOCATION_KEY
 import com.yun.disastermessage.data.Constant.TAG
 import com.yun.disastermessage.data.model.AddressModel
 import com.yun.disastermessage.data.model.MessageModel
@@ -30,7 +31,7 @@ class HomeViewModel(
 
     val messageItems = ListLiveData<MessageModel.RS.Row>()
 
-    val screen = MutableLiveData(SELECT_SCREEN)
+    val screen = MutableLiveData<Int>()
 
     val loading = MutableLiveData(false)
 
@@ -42,7 +43,17 @@ class HomeViewModel(
 //    https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=26*000000
 //    https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=11*000000
 
-    fun callAddressApi(pattern: String = Constant.ALL_LOCATION){
+    init {
+        if(sharedPreferences.getString(mContext,SHARED_LOCATION_KEY) != ""){
+            screen.value = LIST_SCREEN
+            location.value = sharedPreferences.getString(mContext,SHARED_LOCATION_KEY)
+            callMessageApi()
+        } else{
+            screen.value = SELECT_SCREEN
+        }
+    }
+
+    fun callAddressApi(pattern: String = ALL_LOCATION){
         loading.value = true
         viewModelScope.launch {
             try {
@@ -82,6 +93,8 @@ class HomeViewModel(
                     DisasterMsg2?.get(1)?.row?.run {
                         messageItems.addAll(setId(this, messageItems.value!!.size))
                     }
+                    sharedPreferences.setString(mContext, SHARED_LOCATION_KEY,location.value)
+
                     loading.value = false
                 }
             } catch (e: Throwable) {
