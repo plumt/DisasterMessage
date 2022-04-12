@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="adsItemListener"
+            type="com.yun.disastermessage.base.BaseRecyclerAdapter.OnItemClickListener" />
+
+        <variable
+            name="itemAds"
+            type="com.yun.disastermessage.data.model.MessageModel.RS.Row" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{itemAds.mod() ? @color/color_f4f4f4 : @color/white}"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <com.google.android.ads.nativetemplates.TemplateView
+            setAds="@{itemAds.id}"
+            android:id="@+id/my_template"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:gnt_template_type="@layout/gnt_small_template_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

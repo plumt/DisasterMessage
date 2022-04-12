@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "332022549227",
+    "project_id": "disastermessage",
+    "storage_bucket": "disastermessage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332022549227:android:1cccb774228411d089ccae",
+        "android_client_info": {
+          "package_name": "com.yun.disastermessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332022549227-11hq2puuuiduc0iqs1lumo0lfj9k3dt4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPlGKRM1ZkOqYiECqsVuKpI-bCv6fKPbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332022549227-11hq2puuuiduc0iqs1lumo0lfj9k3dt4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

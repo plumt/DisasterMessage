@@ -13,6 +13,7 @@ import com.yun.disastermessage.data.Constant.LIST_SCREEN
 import com.yun.disastermessage.data.Constant.SELECT_SCREEN
 import com.yun.disastermessage.data.Constant.SHARED_LOCATION_KEY
 import com.yun.disastermessage.data.Constant.TAG
+import com.yun.disastermessage.data.Constant.TYPE_ADS
 import com.yun.disastermessage.data.model.AddressModel
 import com.yun.disastermessage.data.model.MessageModel
 import com.yun.disastermessage.data.repository.api.Api
@@ -91,6 +92,7 @@ class HomeViewModel(
                     if(clear) messageItems.value!!.clear()
                     screen.value = LIST_SCREEN
                     DisasterMsg2?.get(1)?.row?.run {
+                        if(this.size > pageNo) this.add(pageNo,MessageModel.RS.Row(id = 0, viewType = TYPE_ADS))
                         messageItems.addAll(setId(this, messageItems.value!!.size))
                     }
                     sharedPreferences.setString(mContext, SHARED_LOCATION_KEY,location.value)

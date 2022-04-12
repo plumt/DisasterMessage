@@ -25,11 +25,13 @@ class BaseRecyclerAdapter {
         const val TYPE_TOP = 1
         const val TYPE_BUTTON = 2
         const val TYPE_HOLDER = 3
+        const val TYPE_ADS = 4
     }
 
     abstract class Create<ITEM : Item, B : ViewDataBinding>(
         @LayoutRes private val layoutResId: Int,
         @LayoutRes private val buttonLayoutResId: Int? = null,
+        @LayoutRes private val adsLayoutResId: Int? = null,
         @LayoutRes private val topLyoutResId: Int? = null,
         @LayoutRes private val holdLayoutResId: Int? = null,
         private val bindingVariableId: Int,
@@ -97,6 +99,9 @@ class BaseRecyclerAdapter {
                 }
                 TYPE_HOLDER -> {
                     holdLayoutResId
+                }
+                TYPE_ADS -> {
+                    adsLayoutResId
                 }
                 else -> {
                     layoutResId

@@ -57,7 +57,7 @@ class HomeFragment
 
             screen.observe(viewLifecycleOwner) {
                 if (it == LIST_SCREEN || it == SELECT_SCREEN) {
-                    binding.vpMessage.setCurrentItem(it, true)
+                    binding.vpMessage.setCurrentItem(it, false)
                 }
             }
 

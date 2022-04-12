@@ -2,9 +2,24 @@ package com.yun.disastermessage.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.google.android.ads.nativetemplates.TemplateView
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdLoader
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.formats.UnifiedNativeAd
+import com.google.android.gms.ads.nativead.NativeAd
+import com.google.android.gms.ads.nativead.NativeAdOptions
+import com.yun.disastermessage.R
+import com.yun.disastermessage.data.Constant
+import com.yun.disastermessage.data.Constant.TAG
+import com.yun.disastermessage.ui.home.viewpager.list.ListFragment
+import kotlin.coroutines.coroutineContext
 
 object PreferenceManager {
     const val PREFERENCES_NAME = "portpolio"
@@ -55,5 +70,26 @@ object Util {
                 .load(path)
                 .into(this)
         }
+    }
+
+    @BindingAdapter("setAds")
+    @JvmStatic
+   fun TemplateView.setAds(id: Int?){
+        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_test_id))
+            .forNativeAd { ad : NativeAd ->
+                // Show the ad.
+                this.setNativeAd(ad)
+            }
+            .withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    // Handle the failure by logging, altering the UI, and so on.
+                }
+            })
+            .withNativeAdOptions(
+                NativeAdOptions.Builder()
+                    // Methods in the NativeAdOptions.Builder class can be
+                    // used here to specify individual options settings.
+                    .build())
+            .build()
     }
 }

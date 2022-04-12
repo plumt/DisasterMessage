@@ -27,12 +27,12 @@ class MessageModel {
         data class Row(
             override var id: Int = 0,
             override var viewType: Int = 0,
-            val create_date: String?,
-            val location_id: String?,
-            val location_name: String?,
-            val md101_sn: String?,
-            val msg: String?,
-            val send_platform: String?
+            val create_date: String? = null,
+            val location_id: String? = null,
+            val location_name: String? = null,
+            val md101_sn: String? = null,
+            val msg: String? = null,
+            val send_platform: String? = null
         ) : Item(){
             fun mod(): Boolean = id % 2 == 0
         }

@@ -3,6 +3,9 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="messageItemListener"
             type="com.yun.disastermessage.base.BaseRecyclerAdapter.OnItemClickListener" />
@@ -17,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@{itemMessage.mod() ? @color/color_f4f4f4 : @color/white}"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
         <androidx.constraintlayout.widget.Guideline
@@ -37,13 +41,12 @@
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:text="@{itemMessage.location_name}"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent"
             app:readMoreColor="@color/color_979797"
             app:readMoreMaxLine="2"
             app:readMoreText="@string/more_text" />
@@ -54,10 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@{itemMessage.msg}"
-            app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintEnd_toEndOf="@id/gl_end"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:readMoreColor="@color/color_979797"
             app:readMoreMaxLine="2"
@@ -69,11 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="right"
-            app:layout_constraintStart_toStartOf="@id/gl_start"
-            app:layout_constraintEnd_toEndOf="@id/gl_end"
             android:text="@{itemMessage.create_date}"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
             app:layout_constraintTop_toBottomOf="@id/tv_msg" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

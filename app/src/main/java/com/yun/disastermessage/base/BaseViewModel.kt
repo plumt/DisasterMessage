@@ -25,7 +25,6 @@ open class BaseViewModel constructor(application: Application) : AndroidViewMode
     fun <T : Item> setId(model: ArrayList<T>, plus: Int = 0): ArrayList<T> {
         model.forEachIndexed { index, t ->
             model[index].id = index + plus
-            model[index].viewType = 0
         }
         return model
     }
