@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
         }
+
+        mainViewModel.activity = this
     }
 
     override fun onBackPressed() {

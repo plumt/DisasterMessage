@@ -64,7 +64,15 @@ class HomeFragment
             loading.observe(viewLifecycleOwner){
                 sharedViewModel.isLoading.value = it
             }
+
+            openAdmob.observe(viewLifecycleOwner){
+                if(it){
+                    openAdmob.value = false
+                    sharedViewModel.showAds()
+                }
+            }
         }
+
 
 
 
