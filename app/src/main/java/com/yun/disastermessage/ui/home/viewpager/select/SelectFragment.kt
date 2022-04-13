@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.yun.disastermessage.R
 import com.yun.disastermessage.BR
 import com.yun.disastermessage.base.BaseBindingFragment
@@ -31,6 +34,12 @@ class SelectFragment
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+
+            adView.loadAd(AdRequest.Builder().build())
+            AdView(requireContext()).apply {
+                adSize = AdSize.BANNER
+            }
+
             mcvAddress.setOnClickListener {
                 viewModel.locationNm.value = ""
                 viewPagerFragment.callAddressApi()

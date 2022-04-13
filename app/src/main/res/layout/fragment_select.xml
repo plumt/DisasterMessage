@@ -38,6 +38,17 @@
 <!--            android:orientation="vertical"-->
 <!--            app:layout_constraintGuide_percent="0.75" />-->
 
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            ads:layout_constraintTop_toTopOf="parent"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_banner_test_id">
+        </com.google.android.gms.ads.AdView>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mcv_address"
             android:layout_width="0dp"
