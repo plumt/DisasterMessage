@@ -18,13 +18,24 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_979797"
+            android:textSize="13sp"
+            android:text="@{list.locationNm}"
+            android:visibility="@{list.screen == Constant.INSTANCE.LIST_SCREEN ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:id="@+id/v_line_top"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@color/color_e8e8e8"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_message"
@@ -43,7 +54,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
             android:background="@color/color_e8e8e8"
-            app:layout_constraintBottom_toTopOf="@id/btn_retry"/>
+            app:layout_constraintBottom_toTopOf="@id/btn_retry" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_retry"
@@ -52,7 +63,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/color_ffd100"
-            android:visibility="@{list.screen == Constant.INSTANCE.LIST_SCREEN ? View.VISIBLE : View.INVISIBLE}"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:stateListAnimator="@null"
@@ -60,9 +70,10 @@
             android:textColor="@color/color_534713"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:visibility="@{list.screen == Constant.INSTANCE.LIST_SCREEN ? View.VISIBLE : View.INVISIBLE}"
             app:cornerRadius="50dp"
             app:iconSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

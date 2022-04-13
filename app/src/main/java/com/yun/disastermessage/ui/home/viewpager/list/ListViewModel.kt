@@ -13,5 +13,7 @@ class ListViewModel(
 
     val messageItems = ListLiveData<MessageModel.RS.Row>()
 
-    val screen = MutableLiveData<Int>(Constant.SELECT_SCREEN)
+    val screen = MutableLiveData(Constant.SELECT_SCREEN)
+
+    val locationNm = MutableLiveData("")
 }
