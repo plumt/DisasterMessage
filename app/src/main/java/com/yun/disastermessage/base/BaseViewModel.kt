@@ -10,6 +10,7 @@ import retrofit2.Response
 
 open class BaseViewModel constructor(application: Application) : AndroidViewModel(application) {
     val mContext = application.applicationContext
+
 //    val db = (application as PortfolioApplication).db
 
     val navigatorFlag = MutableLiveData<Int>()

@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{itemMessage.location_name}"
-            android:textColor="@color/black"
+            android:textColor="@color/color_777777"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@id/gl_end"
             app:layout_constraintStart_toStartOf="@id/gl_start"

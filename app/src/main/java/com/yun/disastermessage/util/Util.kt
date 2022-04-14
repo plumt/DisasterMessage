@@ -31,6 +31,7 @@ object PreferenceManager {
     open fun getPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
+
     fun setString(context: Context, key: String?, value: String?) {
         val prefs = getPreferences(context)
         val editor = prefs.edit()
@@ -74,9 +75,9 @@ object Util {
 
     @BindingAdapter("setAds")
     @JvmStatic
-   fun TemplateView.setAds(id: Int?){
+    fun TemplateView.setAds(id: Int?) {
         val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_test_id))
-            .forNativeAd { ad : NativeAd ->
+            .forNativeAd { ad: NativeAd ->
                 // Show the ad.
                 this.setNativeAd(ad)
             }
@@ -89,7 +90,8 @@ object Util {
                 NativeAdOptions.Builder()
                     // Methods in the NativeAdOptions.Builder class can be
                     // used here to specify individual options settings.
-                    .build())
+                    .build()
+            )
             .build()
     }
 }

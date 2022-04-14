@@ -39,6 +39,9 @@ class ListFragment
             screen.observe(viewLifecycleOwner){
                 viewModel.screen.value = it
             }
+            location.observe(viewLifecycleOwner){
+                viewModel.locationNm.value = it
+            }
         }
 
         binding.apply {
@@ -67,7 +70,7 @@ class ListFragment
                         }
 
                         when(newState){
-                            RecyclerView.SCROLL_STATE_DRAGGING ->binding.btnRetry.visibility = View.GONE
+                            RecyclerView.SCROLL_STATE_DRAGGING -> binding.btnRetry.visibility = View.GONE
                             RecyclerView.SCROLL_STATE_IDLE -> binding.btnRetry.visibility = View.VISIBLE
                         }
                     }

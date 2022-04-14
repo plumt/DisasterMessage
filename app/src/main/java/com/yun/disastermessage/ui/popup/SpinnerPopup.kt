@@ -2,10 +2,13 @@ package com.yun.disastermessage.ui.popup
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -25,7 +28,6 @@ class SpinnerPopup {
 //            binding.setVariable(BR.title, title)
             setView(binding.root)
             val dialog = create()
-
 //            dialog.setOnDismissListener {
 //                customDialogListener.onResultClicked(false)
 //            }

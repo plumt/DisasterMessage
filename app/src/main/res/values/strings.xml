@@ -3,20 +3,35 @@
 
     <string name="admob_app_id">ca-app-pub-7669498576619816~2304888073</string>
     <string name="admob_native_id">ca-app-pub-7669498576619816/4739479720</string>
+    <string name="admob_front_id">ca-app-pub-7669498576619816/6439231325</string>
+    <string name="admob_banner_id">ca-app-pub-7669498576619816/5875988490</string>
 
     <string name="admob_app_test_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_native_test_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_front_test_id">ca-app-pub-7669498576619816/8560478693</string>
+    <string name="admob_banner_test_id">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="OPEN_URL">http://apis.data.go.kr</string>
     <string name="ADDRESS_URL">https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app</string>
     <string name="ServiceKey">nHxMfmtyTjtuCvjAcPez7bDwl%2BPwLECo%2FF2%2FLp92vVDqrtlW4KTvdmMMqZiXWu5zyrP6ehOEnYoeG6hpdbSA8w%3D%3D</string>
 
     <string name="exit">종료</string>
+    <string name="result">확인</string>
     <string name="cancel">취소</string>
     <string name="notice">알림</string>
     <string name="exit_question">앱을 종료하시겠습니까?</string>
     <string name="loading_text">데이터를 불러오는 중입니다.</string>
     <string name="more_text">\n…더보기</string>
     <string name="retry_btn_text">다른 지역 검색하기</string>
-    <string name="search_btn_text">조회하기</string>
+    <string name="search_btn_text">조회</string>
+
+    <string name="store_uri">url 입력</string>
+
+    <string name="update_title">업데이트</string>
+    <string name="update_contents">최신 버전 앱으로 업데이트를 위해 스토어로 이동합니다.</string>
+
+    <string name="error_title">오류</string>
+    <string name="internet_contents">서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.</string>
+
+    <string name="info">이 앱은 한국 공공데이터 포털에서 제공하는 행정안전부 재난 문자 발송 발령현황 API를 이용하고 있습니다.</string>
 </resources>

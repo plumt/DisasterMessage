@@ -20,4 +20,11 @@ object Constant {
     val REMOTE_KEY_APP_VERSION = "app_version"
     val TYPE_ADS = 4
 
+    val SHAREDPREFERENCES_CNT_KEY = "cnt"
+    val ADS_SHOW_CNT = 4
+    val ADS_RESET_CNT = 0
+
+    val INTERNET_ERROR = "001"
+    val UPDATE_ERROR = "002"
+
 }
