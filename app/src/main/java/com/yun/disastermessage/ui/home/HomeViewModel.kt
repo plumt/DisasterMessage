@@ -10,6 +10,7 @@ import com.yun.disastermessage.base.ListLiveData
 import com.yun.disastermessage.data.Constant
 import com.yun.disastermessage.data.Constant.ADS_SHOW_CNT
 import com.yun.disastermessage.data.Constant.ALL_LOCATION
+import com.yun.disastermessage.data.Constant.INTERNET_ERROR
 import com.yun.disastermessage.data.Constant.LIST_SCREEN
 import com.yun.disastermessage.data.Constant.SELECT_SCREEN
 import com.yun.disastermessage.data.Constant.SHAREDPREFERENCES_CNT_KEY
@@ -19,6 +20,8 @@ import com.yun.disastermessage.data.Constant.TYPE_ADS
 import com.yun.disastermessage.data.model.AddressModel
 import com.yun.disastermessage.data.model.MessageModel
 import com.yun.disastermessage.data.repository.api.Api
+import com.yun.disastermessage.ui.popup.OneButtonPopup
+import com.yun.disastermessage.ui.popup.TwoButtonPopup
 import com.yun.disastermessage.util.PreferenceManager
 import kotlinx.coroutines.launch
 import java.net.URLDecoder
@@ -43,6 +46,8 @@ class HomeViewModel(
     val locationList = ListLiveData<AddressModel.Items>()
 
     val openAdmob = MutableLiveData(false)
+
+    val errorType = MutableLiveData("")
 
 //    https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=*00000000
 //    https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes?regcode_pattern=26*000000
@@ -75,6 +80,7 @@ class HomeViewModel(
                 }
             } catch (e: Throwable) {
                 Log.e(TAG, "error : ${e.message}")
+                errorType.value = INTERNET_ERROR
                 loading.value = false
             }
         }
@@ -110,7 +116,8 @@ class HomeViewModel(
                     loading.value = false
                 }
             } catch (e: Throwable) {
-                Log.e(TAG, "error : ${e.message}")
+                Log.e(TAG, "HomeViewModel error : ${e.message}")
+                errorType.value = INTERNET_ERROR
                 loading.value = false
             }
         }
@@ -126,4 +133,6 @@ class HomeViewModel(
         Log.d(TAG, "cnt : ${sharedPreferences.getInt(mContext, SHAREDPREFERENCES_CNT_KEY)}")
 
     }
+
+
 }

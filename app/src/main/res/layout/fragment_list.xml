@@ -60,8 +60,6 @@
             android:id="@+id/btn_retry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/color_ffd100"
             android:insetTop="0dp"
             android:insetBottom="0dp"

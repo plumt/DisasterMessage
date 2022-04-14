@@ -13,7 +13,6 @@ import com.google.android.material.button.MaterialButton
 import com.yun.disastermessage.R
 import com.yun.disastermessage.BR
 import com.yun.disastermessage.databinding.DialogTwoButtonBinding
-import com.yun.disastermessage.util.Util.setAds
 
 class TwoButtonPopup {
     lateinit var customDialogListener: CustomDialogListener
@@ -22,27 +21,28 @@ class TwoButtonPopup {
         AlertDialog.Builder(context).run {
             setCancelable(true)
             val view = View.inflate(context, R.layout.dialog_two_button, null)
-//            val template = view.findViewById<TemplateView>(R.id.my_template)
             val binding = DialogTwoButtonBinding.bind(view)
             binding.setVariable(BR.title, title)
             binding.setVariable(BR.contents, contents)
+            binding.setVariable(BR.first_btn_text, context.getString(R.string.cancel))
+            binding.setVariable(BR.second_btn_text, context.getString(R.string.exit))
             setView(binding.root)
             val dialog = create()
 
-//            dialog.setOnDismissListener {
-//                customDialogListener.onResultClicked(false)
-//            }
+            dialog.setOnDismissListener {
+                customDialogListener.onResultClicked(false)
+            }
 
             setAds(context, view.findViewById(R.id.my_template))
 
 
             // 종료 버튼
-            view.findViewById<MaterialButton>(R.id.btn_exit).setOnClickListener {
+            view.findViewById<MaterialButton>(R.id.btn_two).setOnClickListener {
                 customDialogListener.onResultClicked(true)
                 dialog.dismiss()
             }
             // 취소 버튼
-            view.findViewById<MaterialButton>(R.id.btn_cancel).setOnClickListener {
+            view.findViewById<MaterialButton>(R.id.btn_one).setOnClickListener {
                 customDialogListener.onResultClicked(false)
                 dialog.dismiss()
             }

@@ -24,4 +24,7 @@ object Constant {
     val ADS_SHOW_CNT = 4
     val ADS_RESET_CNT = 0
 
+    val INTERNET_ERROR = "001"
+    val UPDATE_ERROR = "002"
+
 }
