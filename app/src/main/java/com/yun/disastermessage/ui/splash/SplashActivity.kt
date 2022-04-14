@@ -72,7 +72,7 @@ class SplashActivity : AppCompatActivity() {
                 } else {
                     Log.d(TAG, it.exception.toString())
                     showWarningPopup(
-                        this.getString(R.string.internet_title),
+                        this.getString(R.string.error_title),
                         this.getString(R.string.internet_contents),
                         INTERNET_ERROR
                     )

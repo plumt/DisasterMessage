@@ -42,7 +42,7 @@ class SelectFragment
 
             mcvAddress.setOnClickListener {
                 viewModel.locationNm.value = ""
-                viewPagerFragment.callAddressApi()
+                viewPagerFragment.clearLocation()
             }
 
             btnSearch.setOnClickListener {

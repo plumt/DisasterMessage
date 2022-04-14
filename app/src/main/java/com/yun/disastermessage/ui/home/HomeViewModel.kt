@@ -64,7 +64,7 @@ class HomeViewModel(
     }
 
     fun callAddressApi(pattern: String = ALL_LOCATION) {
-        loading.value = true
+//        loading.value = true
         viewModelScope.launch {
             try {
                 (callApi(
@@ -122,6 +122,12 @@ class HomeViewModel(
             }
         }
     }
+
+    fun clearLocation(){
+        sharedPreferences.setString(mContext, SHARED_LOCATION_KEY, "")
+        callAddressApi()
+    }
+
     private fun cntCheck(){
         sharedPreferences.getInt(mContext, SHAREDPREFERENCES_CNT_KEY)!!.let {
             if(it >= ADS_SHOW_CNT) {

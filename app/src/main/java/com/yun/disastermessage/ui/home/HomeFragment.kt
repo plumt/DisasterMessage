@@ -7,7 +7,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.yun.disastermessage.R
 import com.yun.disastermessage.BR
 import com.yun.disastermessage.base.BaseBindingFragment
-import com.yun.disastermessage.data.Constant
 import com.yun.disastermessage.data.Constant.INTERNET_ERROR
 import com.yun.disastermessage.data.Constant.LIST_SCREEN
 import com.yun.disastermessage.data.Constant.SELECT_SCREEN
@@ -79,7 +78,7 @@ class HomeFragment
                 when (it) {
                     INTERNET_ERROR -> {
                         showWarningPopup(
-                            requireContext().getString(R.string.internet_title),
+                            requireContext().getString(R.string.error_title),
                             requireContext().getString(R.string.internet_contents),
                             it
                         )
