@@ -20,8 +20,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    // signingConfigs 통으로 지워야 함,,,,,,, app 폴더 안에 yun.jks 파일도 삭제해야 함
+    signingConfigs {
+        release {
+            storeFile file('yun.jks') // 기준은 App 폴더 기준이다.
+            storePassword "dksdnjfhr3!"
+            keyAlias "yun"
+            keyPassword "dksdnjfhr3!"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release // 지워야 함
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

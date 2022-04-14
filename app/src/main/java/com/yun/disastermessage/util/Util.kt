@@ -76,7 +76,7 @@ object Util {
     @BindingAdapter("setAds")
     @JvmStatic
     fun TemplateView.setAds(id: Int?) {
-        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_test_id))
+        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_id))
             .forNativeAd { ad: NativeAd ->
                 // Show the ad.
                 this.setNativeAd(ad)

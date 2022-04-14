@@ -33,7 +33,7 @@ class MainViewModel(
     private fun settingAds(){
 
         InterstitialAd.load(mContext
-        ,mContext.getString(R.string.admob_front_test_id)
+        ,mContext.getString(R.string.admob_front_id)
         ,AdRequest.Builder().build(),
         object : InterstitialAdLoadCallback(){
             override fun onAdLoaded(interstitialAd: InterstitialAd) {

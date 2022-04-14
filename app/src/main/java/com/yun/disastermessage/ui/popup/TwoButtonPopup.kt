@@ -55,7 +55,7 @@ class TwoButtonPopup {
     }
 
     private fun setAds(context: Context, templateView: TemplateView){
-        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_test_id))
+        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_id))
             .forNativeAd { ad: NativeAd ->
                 // Show the ad.
                 templateView.setNativeAd(ad)
